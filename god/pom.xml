@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- maven可以继承父项目中的参数，所以可以删除子模块中定义 -->
+    <groupId>com.zhenmu</groupId>
+    <artifactId>god</artifactId>
+    <!-- maven可以继承父项目中的参数，所以可以删除子模块中定义 -->
+    <!--<version>0.0.1-SNAPSHOT</version>-->
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>com.zhenmu</groupId>
+        <artifactId>nature</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath><!-- lookup parent from repository -->
+    </parent>
+
+    <dependencies>
+        <!-- 加入其余模块的依赖 -->
+<!--       <dependency>
+            <groupId>com.zhenmu</groupId>
+            <artifactId>weather</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>-->
+<!--       <dependency>
+            <groupId>com.zhenmu</groupId>
+            <artifactId>water</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>-->
+<!--          <dependency>
+            <groupId>com.zhenmu</groupId>
+            <artifactId>person-web</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>-->
+            <dependency>
+                 <groupId>com.zhenmu</groupId>
+                 <artifactId>person-service</artifactId>
+                 <version>1.0-SNAPSHOT</version>
+             </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.58</version>
+        </dependency>
+
+
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.0-alpha0</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.apache.curator/curator-framework -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.1.9.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.0.6.RELEASE</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
+                        </goals>
+                    </execution>
+                </executions>
+
+                <!-- 当所依赖的其他模块，有启动类的时候，需要以下配置，指定唯一启动类，
+        本次事例未涉及其他模块有启动类，可自行测试 -->
+                <configuration>
+                    <!-- 指定该Main Class为全局的唯一入口 -->
+                    <mainClass>com.zhenmu.god.GodApplication</mainClass>
+                    <layout>ZIP</layout>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
