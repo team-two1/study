@@ -22,7 +22,12 @@ public class UserController {
 
     @RequestMapping("/login")
     public String login(){
-        log.info("login request OK");
-        return userApi.login();
+        String result = null;
+        try{
+            result = userApi.login();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
     }
 }

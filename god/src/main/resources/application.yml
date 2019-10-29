@@ -1,19 +1,22 @@
-#server:
-#  port: 8080
-#
-#spring:
-#  datasource:
-#    username: root
-#    password: 1234
-#    url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
-#    driver-class-name: com.mysql.jdbc.Driver
-#
-#mybatis:
-#  mapper-locations: mapper/**/*Mapper.xml
-#
-##showSql
-#logging:
-#  level:
-#    com:
-#      example:
-#        mapper : debug
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/water?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: 1257380341
+
+logging:
+  level:
+    ROOT: INFO
+    io.github.jhipster: DEBUG
+    com.zhenmu: INFO

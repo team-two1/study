@@ -1,6 +1,9 @@
 package com.zhenmu.personservice.service.impl;
 
+import com.zhenmu.personservice.entity.User;
+import com.zhenmu.personservice.mapper.UserMapper;
 import com.zhenmu.personservice.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,13 +15,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-//    @Autowired
-//    private UserMapper userMapper;
+    @Autowired
+    private UserMapper userMapper;
 
     @Override
     public String login(){
-//        User user = userMapper.queryById(1L);
-       // System.out.println(user.toString());
+        User user = userMapper.queryById(1L);
+        System.out.println(user.toString());
         return "service OK";
     }
 }

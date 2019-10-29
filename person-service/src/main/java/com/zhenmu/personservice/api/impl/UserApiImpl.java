@@ -1,6 +1,8 @@
 package com.zhenmu.personservice.api.impl;
 
 import com.zhenmu.personservice.api.UserApi;
+import com.zhenmu.personservice.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,8 +14,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserApiImpl implements UserApi {
 
+    @Autowired
+    private UserService userService;
+
     @Override
     public String login(){
-        return "service OK";
+        return userService.login();
     }
 }
