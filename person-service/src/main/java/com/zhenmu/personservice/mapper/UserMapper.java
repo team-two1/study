@@ -11,4 +11,6 @@ import com.zhenmu.personservice.entity.User;
 public interface UserMapper {
 
     User queryById(Long userId);
+
+    User saveuser(User user);
 }

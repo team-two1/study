@@ -30,4 +30,15 @@ public class UserController {
         }
         return result;
     }
+
+    @RequestMapping("/register")
+    public String register(){
+        String result = null;
+        try{
+            result = userApi.register();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

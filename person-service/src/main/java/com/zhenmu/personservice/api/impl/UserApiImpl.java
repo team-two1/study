@@ -21,4 +21,9 @@ public class UserApiImpl implements UserApi {
     public String login(){
         return userService.login();
     }
+
+    @Override
+    public String register() {
+        return userService.register();
+    }
 }

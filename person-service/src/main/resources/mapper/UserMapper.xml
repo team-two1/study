@@ -3,6 +3,10 @@
 <mapper namespace="com.zhenmu.personservice.mapper.UserMapper">
 
     <select id="queryById" resultType="com.zhenmu.personservice.entity.User">
-        select id,USER_NAME userName from USER
+        select id,username,password,phone from sp_user
     </select>
+    
+    <insert id="saveuser" parameterType="com.zhenmu.personservice.entity.User">
+        insert into sp_user (username,password,phone) VALUES (#{username},#{password},#{phone})
+    </insert>
 </mapper>
