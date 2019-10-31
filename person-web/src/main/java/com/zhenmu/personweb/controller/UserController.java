@@ -1,8 +1,10 @@
 package com.zhenmu.personweb.controller;
 
 import com.zhenmu.personservice.api.UserApi;
+import com.zhenmu.personservice.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,8 +34,7 @@ public class UserController {
     }
 
     @RequestMapping("/register")
-    public String register(){
-
-        return userApi.register();
+    public String register(@RequestBody User user){
+        return userApi.register(user);
     }
 }

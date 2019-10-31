@@ -15,11 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
     @Override
-    public String register() {
-        User user = new User();
-        user.setUserName("李四");
-        user.setPassword("111");
-        user.setPhone("000");
+    public String register(User user) {
         userMapper.saveuser(user);
         return "success";
     }
