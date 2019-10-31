@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword("111");
         user.setPhone("000");
         userMapper.saveuser(user);
-        return "";
+        return "success";
     }
 
     @Autowired
