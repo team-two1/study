@@ -15,6 +15,15 @@ spring:
     username: root
     password: 150010
 
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+    servlet:
+      content-type: text/html
+
 logging:
   level:
     ROOT: INFO

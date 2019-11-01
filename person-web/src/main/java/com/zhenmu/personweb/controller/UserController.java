@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author by xuzhen4.
@@ -36,5 +37,15 @@ public class UserController {
     @RequestMapping("/register")
     public String register(@RequestBody User user){
         return userApi.register(user);
+    }
+
+    @RequestMapping("/index")
+    public ModelAndView index() {
+        ModelAndView model = new ModelAndView();
+        model.addObject("name", "jack");
+        model.addObject("age", 20);
+        model.addObject("info", "我是一个爱学习的好青年");
+        model.setViewName("login");
+        return model;
     }
 }
